@@ -3,9 +3,19 @@ package com.educandoWeb.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity //anotation do jpa para instruir de como vai converter os objetos ao modelo relacionmal
+@Table(name = "tb_user") // anotação para dizer que a tabela se chama, e usar o tb pq existe uma palavra reservada user no bd
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@Id // anotação para dizer que é o id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // para dizer que é auto increment no bd, pega na maioria dos bd's
 	private Long id;
 	private String name;
 	private String email;
